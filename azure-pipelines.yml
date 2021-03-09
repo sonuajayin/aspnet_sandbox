@@ -10,22 +10,27 @@ pool:
   vmImage: windows-latest
 
 steps:
-- task: UseDotNet@2
-  displayName: 'Install .Net Core SDK'
-  inputs:
-    version: '5.0.x'
-    performMultiLevelLookup: true
-    includePreviewVersions: true
-
-steps:
 - task: DotNetCoreCLI@2
+  displayName: 'dotnet build'
   inputs:
-    command: restore
-    projects: '**/*.csproj'
-    feedsToUse: config
-    nugetConfigPath: NuGet.config
+    command: 'build'
+    configuration: $(buildConfiguration)
+  
+- task: DotNetCoreCLI@2
+  displayName: 'dotnet test'
+  inputs:
+    command: 'test'
+    arguments: '--configuration $(buildConfiguration) /p:CollectCoverage=true /p:CoverletOutputFormat=cobertura /p:CoverletOutput=$(Build.SourcesDirectory)/TestResults/Coverage/'
+    publishTestResults: true
+    projects: 'MyTestLibrary' # update with your test project directory
+  
+- task: PublishCodeCoverageResults@1
+  displayName: 'Publish code coverage report'
+  inputs:
+    codeCoverageTool: 'Cobertura'
+    summaryFileLocation: '$(Build.SourcesDirectory)/**/coverage.cobertura.xml'
 
 - script: |
-    echo Add other tasks to build, test, and deploy your project.
+    echo $(Build.SourcesDirectory), $(buildConfiguration) ,$(Build.ArtifactStagingDirectory).
     echo See https://aka.ms/yaml
   displayName: 'Run a multi-line script'
