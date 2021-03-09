@@ -9,7 +9,7 @@ namespace aspnet_sandbox.Tests
         [Fact(DisplayName="Check if the AppName Mathes with the expected")]
         public void testForAppName()
         {
-            var expectedAppName="AzurePipelines";
+            var expectedAppName="AzurePipelines1";
             var appNameService=new AppNameService();
             var actualAppName=appNameService.get();
             Assert.Equal(expectedAppName,actualAppName);
