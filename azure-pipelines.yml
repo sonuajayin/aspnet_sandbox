@@ -31,11 +31,11 @@ steps:
 - script: 'reportgenerator -reports:$(Agent.TempDirectory)/**/coverage.cobertura.xml -targetdir:$(Build.SourcesDirectory)/coverlet/reports -reporttypes:"Cobertura"'  
   displayName: 'Create reports' 
   
-- task: PublishCodeCoverageResults@1
-  displayName: 'Publish code coverage report'
-  inputs:
-    codeCoverageTool: 'Cobertura'
-    summaryFileLocation: '$(Build.SourcesDirectory)/coverlet/reports/Cobertura.xml'
+- task: PublishCodeCoverageResults@1  
+  displayName: 'Publish code coverage'  
+  inputs:  
+    codeCoverageTool: Cobertura  
+    summaryFileLocation: '$(Build.SourcesDirectory)/coverlet/reports/Cobertura.xml' 
 
 - script: |
     echo $(Build.SourcesDirectory), $(buildConfiguration) ,$(Build.ArtifactStagingDirectory).
