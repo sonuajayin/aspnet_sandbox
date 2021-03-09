@@ -7,11 +7,23 @@ trigger:
 - main
 
 pool:
-  vmImage: ubuntu-latest
+  vmImage: windows-latest
 
 steps:
-- script: echo Hello, world!
-  displayName: 'Run a one-line script'
+- task: UseDotNet@2
+  displayName: 'Install .Net Core SDK'
+  inputs:
+    version: '5.0.x'
+    performMultiLevelLookup: true
+    includePreviewVersions: true
+
+steps:
+- task: DotNetCoreCLI@2
+  inputs:
+    command: restore
+    projects: '**/*.csproj'
+    feedsToUse: config
+    nugetConfigPath: NuGet.config
 
 - script: |
     echo Add other tasks to build, test, and deploy your project.
