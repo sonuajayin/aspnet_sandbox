@@ -29,7 +29,7 @@ steps:
   displayName: 'Publish code coverage report'
   inputs:
     codeCoverageTool: 'Cobertura'
-    summaryFileLocation: '$(Build.SourcesDirectory)/**/coverage.cobertura.xml'
+    summaryFileLocation: '$(Build.SourcesDirectory)/TestResults/Coverage/coverage.cobertura.xml'
 
 - script: |
     echo $(Build.SourcesDirectory), $(buildConfiguration) ,$(Build.ArtifactStagingDirectory).
