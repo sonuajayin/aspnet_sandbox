@@ -1,0 +1,6 @@
+dotnet new sln -o aspnet_sandbox
+dotnet new webapp -o aspnet_sandbox.webapp
+dotnet sln add .\aspnet_sandbox.web\aspnet_sandbox.web.csproj
+dotnet new xunit -o aspnet_sandbox.Tests
+dotnet sln add .\aspnet_sandbox.Tests\aspnet_sandbox.Tests.csproj
+dotnet add .\aspnet_sandbox.Tests\aspnet_sandbox.Tests.csproj reference .\aspnet_sandbox.web\aspnet_sandbox.web.csproj
