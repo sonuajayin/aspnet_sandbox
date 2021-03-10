@@ -22,5 +22,5 @@ steps:
     inputs:
       command: test
       projects: '**/*Tests/*.csproj'
-      arguments: '--configuration $(buildConfiguration) --collect: "Code Coverage" --RunConfiguration.DisableAppDomain=true'
+      arguments: '--configuration $(buildConfiguration) --collect: "XPlat Code Coverage" --RunConfiguration.DisableAppDomain=true'
       publishTestResults: true
