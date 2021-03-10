@@ -16,3 +16,11 @@ steps:
       command: build
       projects: '**/*web/*.csproj'
       configuration: $(buildConfiguration)
+  
+  - task: DotNetCoreCLI@2
+    displayName: 'Run Test'
+    inputs:
+      command: test
+      projects: '**/*Tests/*.csproj'
+      arguments: '--configuration $(buildConfiguration) --collect: "Code Coverage" --RunConfiguration.DisableAppDomain=true'
+      publishTestResults: true
