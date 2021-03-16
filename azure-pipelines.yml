@@ -54,4 +54,4 @@ steps:
       azureSubscription: 'AZDotnet'
       appType: 'webApp'
       appName: 'dotnetazdemo'
-      package: $(System.DefaultWorkingDirectory)/**/*.zip   
+      package: $(Build.ArtifactStagingDirectory)/**/*.zip   
