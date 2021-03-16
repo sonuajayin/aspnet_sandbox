@@ -48,3 +48,10 @@ steps:
     inputs:
       pathtoPublish: '$(Build.ArtifactStagingDirectory)' 
       artifactName: 'DotNetCoreApp'
+  
+  - task: AzureWebApp@1
+    inputs:
+      azureSubscription: 'AZDotnet'
+      appType: 'webApp'
+      appName: 'dotnetazdemo'
+      package: $(System.DefaultWorkingDirectory)/**/*.zip   
