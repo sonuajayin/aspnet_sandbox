@@ -20,7 +20,7 @@ steps:
   - task: DotNetCoreCLI@2
     displayName: 'Run Test'
     inputs:
-      command: test
-      projects: '**/*Tests/*.csproj'
-      arguments: '--configuration $(buildConfiguration) --collect: "XPlat Code Coverage" -- RunConfiguration.DisableAppDomain=true'
+      command: 'test'
+      arguments: '--configuration $(buildConfiguration) --collect:"XPlat Code Coverage" -- RunConfiguration.DisableAppDomain=true'
       publishTestResults: true
+      projects: '**/*Tests/*.csproj'
