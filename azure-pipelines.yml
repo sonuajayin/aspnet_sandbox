@@ -41,8 +41,8 @@ steps:
     displayName: 'Dotnet Publish and Zip'
     inputs:
       publishWebProjects: true
-      command: publish
-      arguments: '-- configuration $(buildConfiguration) --output $(Build.ArtifactStagingDirectory)'
+      command: 'publish'
+      arguments: '--configuration $(buildConfiguration) --output $(Build.ArtifactStagingDirectory)'
       zipAfterPublish: true
   
   - task: PublishBuildArtifacts@1
