@@ -56,5 +56,5 @@ steps:
     inputs:
       azureSubscription: 'dotnetazconn'
       appType: 'webApp'
-      appName: 'dotnetazdemo'
+      appName: 'azdotnetdemo'
       package: '$(Build.ArtifactStagingDirectory)/**/*.zip'
