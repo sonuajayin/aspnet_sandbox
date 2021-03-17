@@ -1,4 +1,4 @@
-﻿# CI/CD with Dotnet App and Azure Pipelines
+﻿# Azure Pipelines with .Net Core
  
  .Net Specific Reference: 
  https://docs.microsoft.com/en-us/azure/devops/pipelines/ecosystems/dotnet-core?view=azure-devops&tabs=dotnetfive
